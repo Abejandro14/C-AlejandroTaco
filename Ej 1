@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	int num[5];
+	int opcion = 0, suma = 0;
+	bool llenado = false;
+	int pos;
+	cout << "ESTE TRABAJO ES PROPIEDAD DE ALEJANDRO TACO :)" << endl;
+	cout << endl;
+	
+	do{
+		cout << "---- MENU DE OPCIONES ----" << endl;
+		cout << "1.- Ingresar datos.\n";
+		cout << "2.- Sumar datos.\n";
+		cout << "3.- Modificar arreglo.\n";
+		cout << "4.- Salir.\n";
+		cout << "Ingrese una opcion: ";
+		cin >> opcion;
+		cout << endl;
+			
+		switch (opcion) {
+			case 1:
+				for(int i=0;i<=4;i++){
+					cout << "Ingrese el numero " << i + 1 << ": ";
+					cin >> num[i];
+				}
+				llenado = true;
+				cout << endl;
+				break;
+			case 2:
+				if(!llenado){
+					cout << "Error: Debe llenar escogiendo la opcion 1!\n";
+				} else {
+					suma  = 0;
+					for(int i=0;i<=4;i++){
+						suma += num[i];	
+					}
+					cout << "La suma de los elementos es: " << suma << endl;
+				}
+				
+				break;
+			case 3:
+				cout << "Ingrese la posicion del  elemento a modificar: ";
+				cin >> pos;
+				if(pos < 0 || pos > 4){
+					cout << "Error: Debe estar dentro del rango de indice!\n";
+				} else {
+					cout << "Ingrese el numero nuevo: ";
+					cin >> num[pos];
+				}
+				break;
+			case 4:
+				cout << "Saliendo del programa...";
+				break;
+			default:
+				cout << "Error: Escoja una opcion dentro del rango!\n";
+				break;
+		}		
+	}while(opcion != 4);
+
+	return 0;
+}
